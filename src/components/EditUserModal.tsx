@@ -132,4 +132,4 @@ export function EditUserModal({ user, isOpen, onClose }: EditUserModalProps) {
       </DialogPanel>
     </Dialog>
   );
-               }
+    }
