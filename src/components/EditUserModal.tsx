@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
 import {
   Button,
-  TextInput,
   NumberInput,
   Dialog,
   DialogPanel,
@@ -63,10 +62,10 @@ export function EditUserModal({ user, isOpen, onClose }: EditUserModalProps) {
             </label>
             <NumberInput
               value={formData.points}
-              onChange={(value) =>
+              onValueChange={(value) =>
                 setFormData((prev) => ({
                   ...prev,
-                  points: typeof value === "number" ? value : Number(value),
+                  points: value ?? 0,
                 }))
               }
               min={0}
@@ -79,10 +78,10 @@ export function EditUserModal({ user, isOpen, onClose }: EditUserModalProps) {
             </label>
             <NumberInput
               value={formData.level}
-              onChange={(value) =>
+              onValueChange={(value) =>
                 setFormData((prev) => ({
                   ...prev,
-                  level: typeof value === "number" ? value : Number(value),
+                  level: value ?? 1,
                 }))
               }
               min={1}
@@ -126,15 +125,11 @@ export function EditUserModal({ user, isOpen, onClose }: EditUserModalProps) {
           <Button variant="secondary" onClick={onClose}>
             Cancel
           </Button>
-          <Button
-            loading={saving}
-            disabled={saving}
-            onClick={handleSave}
-          >
+          <Button loading={saving} disabled={saving} onClick={handleSave}>
             Save Changes
           </Button>
         </div>
       </DialogPanel>
     </Dialog>
   );
-    }
+               }
