@@ -1,15 +1,28 @@
 export interface User {
   id: string;
-  username?: string;
   firstName?: string;
   lastName?: string;
-  email?: string;
+  username?: string;
   photoUrl?: string;
   points: number;
+  referralCode: string;
+  referralLink: string;
+  referredBy?: string;
+  totalInvites: number;
+  dailyRank?: number;
+  globalRank?: number;
   level: number;
-  totalInvites?: number;
+  balance: number;
+  achievements: number;
+  unlockedAchievements?: string[];
+  unlockedTiers?: number[];
+  walletAddress: string | null;
   isEarlyAdopter?: boolean;
-  isBanned?: boolean;
-  createdAt: any;
-  lastActive?: any;
+  earlyAdopterClaimedAt?: Date;
+}
+
+export interface ReferralTier {
+  invites: number;
+  reward: number;
+  title: string;
 }
